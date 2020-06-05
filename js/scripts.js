@@ -15,7 +15,8 @@ $(document).ready(function() {
     const industry = $("#q5").val();
 
     let langRec
-
+    let why
+    const fullName = firstName + " " + lastName + ","
 
     if (industry === "iOS") {
       langRec = "Swift"
@@ -29,8 +30,23 @@ $(document).ready(function() {
       } else {
         langRec = "Jave or Koltin"
       };
-    } 
+    } else if (industry === "websites") {
+      langRec = "HTML, CSS, and JavaScript"
+    } else if (industry === "data") {
+      langRec = "Python"
+    } else if (industry === "engi") {
+      langRec = "R"
+    } else if (industry === "sci") {
+      langRec = "MATLAB"
+    } else if (industry === "gameDev") {
+      langRec = "C++ or C#"
+    } else if (industry === "other") {
+        langRec = "Python";
+        why = " because it is forgiving and one of the fastest growing languages";
+    };
     
-    $(".language").text(langRec)
+    $(".name").text(fullName);
+    $(".language").text(langRec);
+    $(".why").text(why);
   });
 });
