@@ -1,5 +1,11 @@
+body {
+  background-color: rgb(26, 54, 53);
+}
+
 .jumbotron {
+  background-color: rgb(243,243,243,.5);
   text-align: center;
+  color: black:
 }
 
 li {list-style-type: none;
@@ -36,4 +42,48 @@ li.rq5 {
 
 .output {
   display: none;
+}
+
+.btn {
+  background-color: rgb(219, 219, 219);
+}
+
+#slider {
+  position: relative;
+  left:-2000px;
+}
+.open {
+  left: 0px !important;
+}
+
+.transition {
+  transition: left .3s ease-out;
+}
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.display-flex > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 150%;
+}
+
+.language {
+  text-decoration: underline;
+  font-size: 200%;
+}
+
+.why {
+  font-style: italic;
+}
+
+.well {
+  background-color: rgb(243,243,243,.5);
+  border: transparent;
 }

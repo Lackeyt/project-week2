@@ -7,7 +7,7 @@ $(document).ready(function() {
     const experience = $("#q3").val();
     const swift = $("input#swift:checked").val();
     const java = $("input#java:checked").val();
-    const koltin = $("input#koltin:checked").val();
+    const kotlin = $("input#kotlin:checked").val();
     const html = $("input#html:checked").val();
     const python = $("input#python:checked").val();
     const r = $("input#r:checked").val();
@@ -43,17 +43,17 @@ $(document).ready(function() {
       why = " because it's the primary language of iOS development"
       }
     } else if (industry === "android") {
-      if (koltin === "1" && java === "1"){
-        langRec = "more Java or Koltin"
+      if (kotlin === "1" && java === "1"){
+        langRec = "more Java or Kotlin"
         why = " because they're the primary languages in Android development"
-      } else if (koltin === "1") {
+      } else if (kotlin === "1") {
         langRec = "Java"
-        why = " because it pairs well with your Koltin experience"
+        why = " because it pairs well with your Kotlin experience"
       } else if (java === "1") {
-        langRec = "Koltin"
+        langRec = "Kotlin"
         why = " because it pairs well with your Java experience"
       } else {
-        langRec = "Java or Koltin"
+        langRec = "Java or Kotlin"
         why = " because they're the primary languages in Android development"
       };
     } else if (industry === "websites") {
@@ -93,26 +93,34 @@ $(document).ready(function() {
       if (rq1v === false) {
         $("li.rq1").show()
         $("input#q1").addClass("emptyForm")
+        $("#slider").removeClass("open")
       } else {
         $("li.rq1").hide()
         $("input#q1").removeClass("emptyForm")
+        $("#slider").removeClass("open")
       }
       if (rq2v === false) {
         $("li.rq2").show()
         $("input#q2").addClass("emptyForm")
+        $("#slider").removeClass("open")
       } else {
         $("li.rq2").hide()
         $("input#q2").removeClass("emptyForm")
+        $("#slider").removeClass("open")
       }
       if (rq3v === false) {
         $("li.rq3").show()
+        $("#slider").removeClass("open")
       } else {
         $("li.rq3").hide()
+        $("#slider").removeClass("open")
       }
       if (rq5v === false) {
         $("li.rq5").show()
+        $("#slider").removeClass("open")
       } else {
         $("li.rq5").hide()
+        $("#slider").removeClass("open")
       }
     } else {
       $(".output").show()
@@ -125,6 +133,7 @@ $(document).ready(function() {
       $("input#q2").removeClass("emptyForm")
       $("li.rq1").hide()
       $("input#q1").removeClass("emptyForm")
+      $("#slider").addClass("open")
     }
   });
 });

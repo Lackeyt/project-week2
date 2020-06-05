@@ -11,10 +11,11 @@
 </head>
 <body>
   <div class="container-fluid">
-  <h1 class="jumbotron">Choosing your First Coding Language</h1>
-    <div class="row container-fluid">
-      <div class="col-md-4">
-        <form id="survey">
+    <h1 class="jumbotron">Choosing a Coding Language</h1>
+
+    <form id="survey" class="well">
+      <div class="row container-fluid display-flex">
+        <div class="col-md-6">
           <div class="form-group">
             <label for="q1">First Name</label>
             <input id="q1" class="form-control" type="text" maxlength="20">
@@ -33,17 +34,7 @@
               <option id="noQ3">No</option>
             </select>
             <li class="rq3">*Required Field</li>
-          </div>
-          <div class="form-group">
-            <label>What languages do you already know?</label>
-            <label for="swift" class="form-control"><input id="swift" type="checkbox" value="1"> Swift</label>
-            <label for="java" class="form-control"><input id="java" type="checkbox" value="1"> Java</label>
-            <label for="java" class="form-control"><input id="koltin" type="checkbox" value="1"> Koltin</label>
-            <label for="html" class="form-control"><input id="html" type="checkbox" value="1"> HTML/CSS/JavaScript</label>
-            <label for="python" class="form-control"><input id="python" type="checkbox" value="1"> Python</label>
-            <label for="r" class="form-control"><input id="r" type="checkbox" value="1"> R</label>
-            <label for="c" class="form-control"><input id="c" type="checkbox" value="1"> C++ or C#</label>
-          </div>
+          </div> 
           <div class="form-group">
             <label for="q5">What industry do you want to work in?</label>
             <select id="q5" class="form-control">
@@ -58,15 +49,33 @@
               <option value="other">Other</option>
             </select>
             <li class="rq5">*Required Field</li>
+          </div> 
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>What languages do you already know?</label>
+            <label for="swift" class="form-control"><input id="swift" type="checkbox" value="1"> Swift</label>
+            <label for="java" class="form-control"><input id="java" type="checkbox" value="1"> Java</label>
+            <label for="java" class="form-control"><input id="kotlin" type="checkbox" value="1"> Kotlin</label>
+            <label for="html" class="form-control"><input id="html" type="checkbox" value="1"> HTML/CSS/JavaScript</label>
+            <label for="python" class="form-control"><input id="python" type="checkbox" value="1"> Python</label>
+            <label for="r" class="form-control"><input id="r" type="checkbox" value="1"> R</label>
+            <label for="c" class="form-control"><input id="c" type="checkbox" value="1"> C++ or C#</label>
           </div>
-          <button type="submit" class="btn">Submit</button>
-        </form>
+        </div>
+        <div class="col-md-12">
+        <button type="submit" class="btn">Submit</button>
+        </div>
       </div>
-      <div class="col-md-8">
-        <p class="output well">Thank you <span class="name"></span><br>
+    </form>
+
+    <div id="slider" class="transition">
+      <div class="row container-fluid">
+        <p class="col-md-12 well output">Thank you <strong><span class="name"></span></strong><br>
           Based on your selections, <span class="language"></span> seems like the best choice<span class="why"></span>!</p>
       </div>
     </div>
   </div>
+  
 </body>
 </html>
