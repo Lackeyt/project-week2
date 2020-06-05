@@ -33,3 +33,7 @@ li.rq5 {
 .emptyForm {
   border-color: #FF0000;
 }
+
+.output {
+  display: none;
+}
