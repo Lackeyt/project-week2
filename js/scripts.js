@@ -37,32 +37,51 @@ $(document).ready(function() {
     if (industry === "iOS") {
       if (swift) {
         langRec = "continuing with Swift"
-        why = "because it's the primary language of iOS development"
+        why = " because it's the primary language of iOS development"
       } else {
       langRec = "Swift"
-      why = "because it's the primary language of iOS development"
+      why = " because it's the primary language of iOS development"
       }
     } else if (industry === "android") {
       if (koltin === "1" && java === "1"){
         langRec = "more Java or Koltin"
-        why = "because they're the primary languages in Android development"
+        why = " because they're the primary languages in Android development"
       } else if (koltin === "1") {
         langRec = "Java"
+        why = " because it pairs well with your Koltin experience"
       } else if (java === "1") {
         langRec = "Koltin"
+        why = " because it pairs well with your Java experience"
       } else {
-        langRec = "Jave or Koltin"
+        langRec = "Java or Koltin"
+        why = " because they're the primary languages in Android development"
       };
     } else if (industry === "websites") {
-      langRec = "HTML, CSS, and JavaScript"
+      if (html === "1"){
+        langRec = "continuing with JavaScript"
+      } else {
+        langRec = "HTML, CSS, and JavaScript"
+      }
     } else if (industry === "data") {
-      langRec = "Python"
+      if (python === "1") {
+        langRec = "R or MATLAB"
+      } else {
+        langRec = "Python"
+      }
     } else if (industry === "engi") {
-      langRec = "R"
+      if (r === "1") {
+        langRec = "Python or MATLAB"
+      } else {
+        langRec = "R"
+      }
     } else if (industry === "sci") {
-      langRec = "MATLAB"
+        langRec = "MATLAB"
     } else if (industry === "gameDev") {
-      langRec = "C++ or C#"
+      if (c === "1") {
+        langRec = "continuing with C++ or C#"
+      } else {
+        langRec = "C++ or C#"
+      }
     } else if (industry === "other") {
         langRec = "Python";
         why = " because it is forgiving and one of the fastest growing languages";
