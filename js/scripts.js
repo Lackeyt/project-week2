@@ -15,17 +15,19 @@ $(document).ready(function() {
     const industry = $("#q5").val();
 
     let langRec
+
+
     if (industry === "iOS") {
       langRec = "Swift"
     } else if (industry === "android") {
-      if (java === "1" && koltin === false){
-        langRec = "Koltin"
-      } else if (koltin === true && java === false) {
-        langRec = "Java"
-      } else if (koltin === false && java === false) {
-        langRec = "Java or Koltin"
-      } else if (koltin === true && java === true) {
+      if (koltin === "1" && java === "1"){
         langRec = "More Java or Koltin"
+      } else if (koltin === "1") {
+        langRec = "Java"
+      } else if (java === "1") {
+        langRec = "Koltin"
+      } else {
+        langRec = "Jave or Koltin"
       };
     } 
     
