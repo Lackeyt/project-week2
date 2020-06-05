@@ -36,7 +36,7 @@ _Survey form with text entry, multi-select, and drop down select elements to gat
 
 ## Known Bugs
 
-* n/a
+* "why" variable not set for every branch condition.
 
 ## Support and contact details
 
