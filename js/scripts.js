@@ -136,6 +136,7 @@ $(document).ready(function() {
       $("#slider").addClass("open")
     }
   });
+  
   $("#reload").click(function() {
     location.reload()
   })
