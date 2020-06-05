@@ -52,6 +52,9 @@ li.rq5 {
 
 .btn {
   background-color: rgb(219, 219, 219);
+  color: black;
+  font-weight: bold;
+  font-size: 120%;
 }
 
 #slider {
@@ -77,12 +80,12 @@ li.rq5 {
 }
 
 p {
-  font-size: 170%;
+  font-size: 150%;
 }
 
 .language {
   text-decoration: underline;
-  font-size: 200%;
+  font-size: 120%;
 }
 
 .why {
