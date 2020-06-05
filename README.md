@@ -56,6 +56,7 @@ _Survey form with text entry, multi-select, and drop down select elements to gat
 ## Resources:
 
 * w3schools.com articles for assistance with animation on the output
+* https://www.youtube.com/watch?v=poJfwre2PIs CS Dojo video helped determine the criteria for what language was recommended
 
 ### License
 
