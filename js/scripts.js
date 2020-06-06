@@ -89,28 +89,37 @@ $(document).ready(function() {
     } else if (industry === "websites") {
       if (html === "1"){
         langRec = "continuing with JavaScript";
+        why = ""
       } else {
         langRec = "HTML, CSS, and JavaScript";
+        why = ""
       };
     } else if (industry === "data") {
       if (python === "1") {
         langRec = "R or MATLAB";
+        why = ""
       } else {
         langRec = "Python";
+        why = ""
       };
     } else if (industry === "engi") {
       if (r === "1") {
         langRec = "Python or MATLAB";
+        why = ""
       } else {
         langRec = "R";
+        why = ""
       };
     } else if (industry === "sci") {
         langRec = "MATLAB";
+        why = ""
     } else if (industry === "gameDev") {
       if (c === "1") {
         langRec = "continuing with C++ or C#";
+        why = ""
       } else {
         langRec = "C++ or C#";
+        why = ""
       };
     } else if (industry === "other") {
         langRec = "Python";
