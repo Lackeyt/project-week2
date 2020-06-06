@@ -29,35 +29,28 @@ $(document).ready(function() {
       if (firstName === "") {
         $("li.rq1").show();
         $("input#q1").addClass("emptyForm");
-        $("#slider").removeClass("open");
       } else {
         $("li.rq1").hide();
         $("input#q1").removeClass("emptyForm");
-        $("#slider").removeClass("open");
       };
       if (lastName === "") {
         $("li.rq2").show();
         $("input#q2").addClass("emptyForm");
-        $("#slider").removeClass("open");
       } else {
         $("li.rq2").hide();
         $("input#q2").removeClass("emptyForm");
-        $("#slider").removeClass("open");
       };
       if (experience === null) {
         $("li.rq3").show();
-        $("#slider").removeClass("open");
       } else {
         $("li.rq3").hide();
-        $("#slider").removeClass("open");
       };
       if (industry === null) {
         $("li.rq5").show();
-        $("#slider").removeClass("open");
       } else {
         $("li.rq5").hide();
-        $("#slider").removeClass("open");
-      }; 
+      };
+      $("#slider").removeClass("open");
     } 
 
     // Output logic - Multi-select should be handled by an array. There must a better way to refactor this into something more concise
