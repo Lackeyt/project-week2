@@ -15,7 +15,7 @@ $(document).ready(function() {
     const c = $("input#c:checked").val();
     const industry = $("#q5").val();
 
-    // Verifies that required fields have been entered
+    // Verifies that required fields have been entered - Trying guard clauses for readability
     function requiredFieldsValid(firstName, lastName, experience, industry) {
       if (firstName === "") return false
       if (lastName === "") return false
@@ -24,7 +24,7 @@ $(document).ready(function() {
       return true
     }
 
-    //error output handling
+    // Error output handling
     if (!requiredFieldsValid(firstName, lastName, experience, industry)) { 
       if (firstName === "") {
         $("li.rq1").show();
@@ -60,7 +60,7 @@ $(document).ready(function() {
       }; 
     } 
 
-    //Industry + known Coding languages logic - Known coding languages should be handled by an array. There must a better way to refactor this into something more concise
+    // Output logic - Multi-select should be handled by an array. There must a better way to refactor this into something more concise
     let langRec
     let why
 
@@ -69,8 +69,8 @@ $(document).ready(function() {
         langRec = "continuing with Swift";
         why = " because it's the primary language of iOS development";
       } else {
-      langRec = "Swift";
-      why = " because it's the primary language of iOS development";
+        langRec = "Swift";
+        why = " because it's the primary language of iOS development";
       };
     } else if (industry === "android") {
       if (kotlin === "1" && java === "1"){
@@ -117,7 +117,7 @@ $(document).ready(function() {
         why = " because it is forgiving and one of the fastest growing languages";
     };
 
-    // validated output
+    // Validated output
     if (requiredFieldsValid(firstName, lastName, experience, industry)) {  
       $(".output").show();
       $(".name").text(fullName);
