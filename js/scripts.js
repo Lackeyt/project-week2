@@ -3,8 +3,8 @@ $(document).ready(function() {
 
     event.preventDefault();
     const firstName = $("input#q1").val();
-    const fullName = firstName + " " + lastName + ","
     const lastName = $("input#q2").val();
+    const fullName = firstName + " " + lastName + ","
     const experience = $("#q3").val();
     const swift = $("input#swift:checked").val();
     const java = $("input#java:checked").val();
@@ -21,17 +21,13 @@ $(document).ready(function() {
     let rq3v = true
     let rq5v = true
 
-    if (firstName === "") {
-      rq1v = false;
-    };
-
-    if (lastName === "") {
-      rq2v = false;
-    };
-
-    if (experience === null) {
-      rq3v = false;
-    };
+    function requiredFieldsValid(firstName, lastName, experience, industry) {
+      if (firstName === "") return false
+      if (lastName === "") return false
+      if (experience === null) return false
+      if (industry === null) return false
+      return true
+    }
 
     //Industry + known Coding languages logic - Known coding languages should be handled by an array. There must a better way to refactor this into something more concise
     let langRec
@@ -88,13 +84,11 @@ $(document).ready(function() {
     } else if (industry === "other") {
         langRec = "Python";
         why = " because it is forgiving and one of the fastest growing languages";
-    } else {
-      rq5v = false;
     };
     
     //error output - needs to be broken away from validated output. Needs to be housed in it own error function and moved to blank field validation area
-    if (rq1v === false || rq2v === false || rq3v === false || rq5v === false) {
-      if (rq1v === false) {
+    if (!requiredFieldsValid(firstName, lastName, experience, industry)) { //If any forms 
+      if (firstName === "") {
         $("li.rq1").show();
         $("input#q1").addClass("emptyForm");
         $("#slider").removeClass("open");
@@ -103,7 +97,7 @@ $(document).ready(function() {
         $("input#q1").removeClass("emptyForm");
         $("#slider").removeClass("open");
       };
-      if (rq2v === false) {
+      if (lastName === "") {
         $("li.rq2").show();
         $("input#q2").addClass("emptyForm");
         $("#slider").removeClass("open");
@@ -112,14 +106,14 @@ $(document).ready(function() {
         $("input#q2").removeClass("emptyForm");
         $("#slider").removeClass("open");
       };
-      if (rq3v === false) {
+      if (experience === null) {
         $("li.rq3").show();
         $("#slider").removeClass("open");
       } else {
         $("li.rq3").hide();
         $("#slider").removeClass("open");
       };
-      if (rq5v === false) {
+      if (industry === null) {
         $("li.rq5").show();
         $("#slider").removeClass("open");
       } else {
