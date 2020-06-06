@@ -24,31 +24,31 @@ $(document).ready(function() {
       return true
     }
 
-    // Error output handling
+    // Error output handling - Could be refactored with array/looping to remove the need to custom IDs for each 
     function errorOutput(firstName, lastName, experience, industry) { 
       if (firstName === "") {
-        $("li.rq1").show();
-        $("input#q1").addClass("emptyForm");
+        $("#q1").siblings("li.rq").show();
+        $("#q1").addClass("emptyForm");
       } else {
-        $("li.rq1").hide();
-        $("input#q1").removeClass("emptyForm");
+        $("#q1").siblings("li.rq").hide();
+        $("#q1").removeClass("emptyForm");
       };
       if (lastName === "") {
-        $("li.rq2").show();
-        $("input#q2").addClass("emptyForm");
+        $("#q2").siblings("li.rq").show();
+        $("#q2").addClass("emptyForm");
       } else {
-        $("li.rq2").hide();
-        $("input#q2").removeClass("emptyForm");
+        $("#q2").siblings("li.rq").hide();
+        $("#q2").removeClass("emptyForm");
       };
       if (experience === null) {
-        $("li.rq3").show();
+        $("#q3").siblings("li.rq").show();
       } else {
-        $("li.rq3").hide();
+        $("#q3").siblings("li.rq").hide();
       };
       if (industry === null) {
-        $("li.rq5").show();
+        $("#q5").siblings("li.rq").show();
       } else {
-        $("li.rq5").hide();
+        $("#q5").siblings("li.rq").hide();
       };
       $("#slider").removeClass("open");
     } 
