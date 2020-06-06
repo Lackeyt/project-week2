@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $("#survey").submit(function(event) {
-
     event.preventDefault();
+
     const firstName = $("input#q1").val();
     const lastName = $("input#q2").val();
     const fullName = firstName + " " + lastName + ","
@@ -15,12 +15,7 @@ $(document).ready(function() {
     const c = $("input#c:checked").val();
     const industry = $("#q5").val();
 
-    // check for blank fields - line 91-93 should be moved here and wrapped in a function
-    let rq1v = true
-    let rq2v = true
-    let rq3v = true
-    let rq5v = true
-
+    // Verifies that required fields have been entered
     function requiredFieldsValid(firstName, lastName, experience, industry) {
       if (firstName === "") return false
       if (lastName === "") return false
@@ -28,6 +23,42 @@ $(document).ready(function() {
       if (industry === null) return false
       return true
     }
+
+    //error output handling
+    if (!requiredFieldsValid(firstName, lastName, experience, industry)) { 
+      if (firstName === "") {
+        $("li.rq1").show();
+        $("input#q1").addClass("emptyForm");
+        $("#slider").removeClass("open");
+      } else {
+        $("li.rq1").hide();
+        $("input#q1").removeClass("emptyForm");
+        $("#slider").removeClass("open");
+      };
+      if (lastName === "") {
+        $("li.rq2").show();
+        $("input#q2").addClass("emptyForm");
+        $("#slider").removeClass("open");
+      } else {
+        $("li.rq2").hide();
+        $("input#q2").removeClass("emptyForm");
+        $("#slider").removeClass("open");
+      };
+      if (experience === null) {
+        $("li.rq3").show();
+        $("#slider").removeClass("open");
+      } else {
+        $("li.rq3").hide();
+        $("#slider").removeClass("open");
+      };
+      if (industry === null) {
+        $("li.rq5").show();
+        $("#slider").removeClass("open");
+      } else {
+        $("li.rq5").hide();
+        $("#slider").removeClass("open");
+      }; 
+    } 
 
     //Industry + known Coding languages logic - Known coding languages should be handled by an array. There must a better way to refactor this into something more concise
     let langRec
@@ -85,42 +116,9 @@ $(document).ready(function() {
         langRec = "Python";
         why = " because it is forgiving and one of the fastest growing languages";
     };
-    
-    //error output - needs to be broken away from validated output. Needs to be housed in it own error function and moved to blank field validation area
-    if (!requiredFieldsValid(firstName, lastName, experience, industry)) { //If any forms 
-      if (firstName === "") {
-        $("li.rq1").show();
-        $("input#q1").addClass("emptyForm");
-        $("#slider").removeClass("open");
-      } else {
-        $("li.rq1").hide();
-        $("input#q1").removeClass("emptyForm");
-        $("#slider").removeClass("open");
-      };
-      if (lastName === "") {
-        $("li.rq2").show();
-        $("input#q2").addClass("emptyForm");
-        $("#slider").removeClass("open");
-      } else {
-        $("li.rq2").hide();
-        $("input#q2").removeClass("emptyForm");
-        $("#slider").removeClass("open");
-      };
-      if (experience === null) {
-        $("li.rq3").show();
-        $("#slider").removeClass("open");
-      } else {
-        $("li.rq3").hide();
-        $("#slider").removeClass("open");
-      };
-      if (industry === null) {
-        $("li.rq5").show();
-        $("#slider").removeClass("open");
-      } else {
-        $("li.rq5").hide();
-        $("#slider").removeClass("open");
-      }; 
-    } else {  // validated output - needs to be a separate function that calls error/validation functions.
+
+    // validated output
+    if (requiredFieldsValid(firstName, lastName, experience, industry)) {  
       $(".output").show();
       $(".name").text(fullName);
       $(".language").text(langRec);
