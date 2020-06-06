@@ -24,7 +24,7 @@ $(document).ready(function() {
       return true
     }
 
-    // Error output handling - Could be refactored with array/looping to remove the need to custom IDs for each 
+    // Error output handling - Could be refactored with array/looping.
     function errorOutput(firstName, lastName, experience, industry) { 
       if (firstName === "") {
         $("#q1").siblings("li.rq").show();
@@ -42,13 +42,17 @@ $(document).ready(function() {
       };
       if (experience === null) {
         $("#q3").siblings("li.rq").show();
+        $("#q3").addClass("emptyForm");
       } else {
         $("#q3").siblings("li.rq").hide();
+        $("#q3").removeClass("emptyForm");
       };
       if (industry === null) {
         $("#q5").siblings("li.rq").show();
+        $("#q5").addClass("emptyForm");
       } else {
         $("#q5").siblings("li.rq").hide();
+        $("#q5").removeClass("emptyForm");
       };
       $("#slider").removeClass("open");
     } 
@@ -57,87 +61,90 @@ $(document).ready(function() {
     let langRec
     let why
 
-    if (industry === "iOS") {
-      if (swift) {
-        langRec = "continuing with Swift";
-        why = " because it's the primary language of iOS development";
-      } else {
-        langRec = "Swift";
-        why = " because it's the primary language of iOS development";
+    function langDef(industry, swift, kotlin, java, html, python, r, c){
+      if (industry === "iOS") {
+        if (swift) {
+          langRec = "continuing with Swift";
+          why = " because it's the primary language of iOS development";
+        } else {
+          langRec = "Swift";
+          why = " because it's the primary language of iOS development";
+        };
+      } else if (industry === "android") {
+        if (kotlin === "1" && java === "1"){
+          langRec = "more Java or Kotlin";
+          why = " because they're the primary languages in Android development";
+        } else if (kotlin === "1") {
+          langRec = "Java";
+          why = " because it pairs well with your Kotlin experience";
+        } else if (java === "1") {
+          langRec = "Kotlin";
+          why = " because it pairs well with your Java experience";
+        } else {
+          langRec = "Java or Kotlin";
+          why = " because they're the primary languages in Android development";
+        };
+      } else if (industry === "websites") {
+        if (html === "1"){
+          langRec = "continuing with JavaScript";
+          why = ""
+        } else {
+          langRec = "HTML, CSS, and JavaScript";
+          why = ""
+        };
+      } else if (industry === "data") {
+        if (python === "1") {
+          langRec = "R or MATLAB";
+          why = ""
+        } else {
+          langRec = "Python";
+          why = ""
+        };
+      } else if (industry === "engi") {
+        if (r === "1") {
+          langRec = "Python or MATLAB";
+          why = ""
+        } else {
+          langRec = "R";
+          why = ""
+        };
+      } else if (industry === "sci") {
+          langRec = "MATLAB";
+          why = ""
+      } else if (industry === "gameDev") {
+        if (c === "1") {
+          langRec = "continuing with C++ or C#";
+          why = ""
+        } else {
+          langRec = "C++ or C#";
+          why = ""
+        };
+      } else if (industry === "other") {
+          langRec = "Python";
+          why = " because it is forgiving and one of the fastest growing languages";
       };
-    } else if (industry === "android") {
-      if (kotlin === "1" && java === "1"){
-        langRec = "more Java or Kotlin";
-        why = " because they're the primary languages in Android development";
-      } else if (kotlin === "1") {
-        langRec = "Java";
-        why = " because it pairs well with your Kotlin experience";
-      } else if (java === "1") {
-        langRec = "Kotlin";
-        why = " because it pairs well with your Java experience";
-      } else {
-        langRec = "Java or Kotlin";
-        why = " because they're the primary languages in Android development";
-      };
-    } else if (industry === "websites") {
-      if (html === "1"){
-        langRec = "continuing with JavaScript";
-        why = ""
-      } else {
-        langRec = "HTML, CSS, and JavaScript";
-        why = ""
-      };
-    } else if (industry === "data") {
-      if (python === "1") {
-        langRec = "R or MATLAB";
-        why = ""
-      } else {
-        langRec = "Python";
-        why = ""
-      };
-    } else if (industry === "engi") {
-      if (r === "1") {
-        langRec = "Python or MATLAB";
-        why = ""
-      } else {
-        langRec = "R";
-        why = ""
-      };
-    } else if (industry === "sci") {
-        langRec = "MATLAB";
-        why = ""
-    } else if (industry === "gameDev") {
-      if (c === "1") {
-        langRec = "continuing with C++ or C#";
-        why = ""
-      } else {
-        langRec = "C++ or C#";
-        why = ""
-      };
-    } else if (industry === "other") {
-        langRec = "Python";
-        why = " because it is forgiving and one of the fastest growing languages";
     };
 
     // Output
-    if (requiredFieldsValid(firstName, lastName, experience, industry)) {  
+    if (requiredFieldsValid(firstName, lastName, experience, industry)) {
+      langDef(industry, swift, kotlin, java, html, python, r, c)  
       $(".output").show();
       $(".name").text(fullName);
       $(".language").text(langRec);
       $(".why").text(why);
-      $("li.rq5").hide();
-      $("li.rq3").hide();
-      $("li.rq2").hide();
-      $("input#q2").removeClass("emptyForm");
-      $("li.rq1").hide();
-      $("input#q1").removeClass("emptyForm");
+      $("li.rq").hide();
+      $("#q1").removeClass("emptyForm");
+      $("#q2").removeClass("emptyForm");
+      $("#q3").removeClass("emptyForm");
+      $("#q5").removeClass("emptyForm");
       $("#slider").addClass("open");
-    } else { //possibly redundant?
+    } else {
       errorOutput(firstName, lastName, experience, industry);
     };
   });
 
-  // Simple "clear form" or start over button logic available on the output
+
+  // "start over" button logic available on the output
   $("#reload").click(function() {
     location.reload();
   });
