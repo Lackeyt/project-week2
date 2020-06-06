@@ -25,7 +25,7 @@ $(document).ready(function() {
     }
 
     // Error output handling
-    if (!requiredFieldsValid(firstName, lastName, experience, industry)) { 
+    function errorOutput(firstName, lastName, experience, industry) { 
       if (firstName === "") {
         $("li.rq1").show();
         $("input#q1").addClass("emptyForm");
@@ -119,7 +119,7 @@ $(document).ready(function() {
         why = " because it is forgiving and one of the fastest growing languages";
     };
 
-    // Validated output
+    // Output
     if (requiredFieldsValid(firstName, lastName, experience, industry)) {  
       $(".output").show();
       $(".name").text(fullName);
@@ -132,6 +132,8 @@ $(document).ready(function() {
       $("li.rq1").hide();
       $("input#q1").removeClass("emptyForm");
       $("#slider").addClass("open");
+    } else { //possibly redundant?
+      errorOutput(firstName, lastName, experience, industry);
     };
   });
 
